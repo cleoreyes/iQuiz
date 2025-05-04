@@ -10,5 +10,5 @@ import UIKit
 struct QuizTopic {
     let icon: UIImage?
     let title: String
-    let description: String // <-- Here is the description property
+    let description: String
 }

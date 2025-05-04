@@ -7,9 +7,8 @@
 
 import UIKit
 
-// Your main ViewController class definition
-class ViewController: UIViewController { // You might also list UITableViewDataSource here, or just in the extension
-
+class ViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     
     let quizTopics: [QuizTopic] = [
@@ -17,31 +16,26 @@ class ViewController: UIViewController { // You might also list UITableViewDataS
         QuizTopic(icon: UIImage(systemName: "atom"), title: "Science", description: "Explore the world of science!"),
         QuizTopic(icon: UIImage(systemName: "star.fill"), title: "Marvel Super Heroes", description: "Are you a Marvel expert?")
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        tableView.dataSource = self // Set the data source
-
-        // tableView.delegate = self // Will add this later for interactions
+        
+        tableView.dataSource = self
+        
     }
-
-    // Your @IBAction for the settings button
+    
     @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-
-    // ... other methods for your ViewController ...
+    
 }
 
-// *** Put the extension block here, outside the class's {} ***
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of topics
         return quizTopics.count
     }
 
