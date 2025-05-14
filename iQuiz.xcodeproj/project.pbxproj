@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		596DAD7C2DD45F8900D36206 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5922C62D2DC6DC62007E7AC3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		5922C6162DC6DC61007E7AC3 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5922C62C2DC6DC62007E7AC3 /* iQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5922C6362DC6DC62007E7AC3 /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinishedViewController.swift; path = iQuiz/FinishedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +93,7 @@
 		5922C60D2DC6DC61007E7AC3 = {
 			isa = PBXGroup;
 			children = (
+				596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */,
 				5922C6182DC6DC61007E7AC3 /* iQuiz */,
 				5922C62F2DC6DC62007E7AC3 /* iQuizTests */,
 				5922C6392DC6DC62007E7AC3 /* iQuizUITests */,
@@ -249,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596DAD7C2DD45F8900D36206 /* FinishedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
