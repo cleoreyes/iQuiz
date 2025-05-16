@@ -13,15 +13,20 @@ struct QuizTopic {
     let description: String
 }
 
-struct Question {
+struct Question: Codable {
     let text: String
-    let options: [String]
-    let correctAnswerIndex: Int
+    let answer: String
+    let answers: [String]
 }
 
-struct Quiz {
+struct Quiz: Codable {
     let title: String
-    let description: String
-    let iconName: String?
+    let desc: String
     let questions: [Question]
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case desc
+        case questions
+    }
 }

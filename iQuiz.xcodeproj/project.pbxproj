@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59083F082DD5722A004156EF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59083F072DD5722A004156EF /* SettingsViewController.swift */; };
 		596DAD7C2DD45F8900D36206 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59083F072DD5722A004156EF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = iQuiz/SettingsViewController.swift; sourceTree = "<group>"; };
 		5922C6162DC6DC61007E7AC3 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5922C62C2DC6DC62007E7AC3 /* iQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5922C6362DC6DC62007E7AC3 /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinishedViewController.swift; path = iQuiz/FinishedViewController.swift; sourceTree = "<group>"; };
+		596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,6 +95,7 @@
 		5922C60D2DC6DC61007E7AC3 = {
 			isa = PBXGroup;
 			children = (
+				59083F072DD5722A004156EF /* SettingsViewController.swift */,
 				596DAD7B2DD45F8900D36206 /* FinishedViewController.swift */,
 				5922C6182DC6DC61007E7AC3 /* iQuiz */,
 				5922C62F2DC6DC62007E7AC3 /* iQuizTests */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				596DAD7C2DD45F8900D36206 /* FinishedViewController.swift in Sources */,
+				59083F082DD5722A004156EF /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

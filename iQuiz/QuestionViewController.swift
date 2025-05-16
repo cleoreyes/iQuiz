@@ -74,8 +74,8 @@ class QuestionViewController: UIViewController {
                 questionLabel.text = currentQuestion.text
 
                 for (index, button) in answerButtons.enumerated() {
-                    if index < currentQuestion.options.count {
-                        button.setTitle(currentQuestion.options[index], for: .normal)
+                    if index < currentQuestion.answers.count {
+                        button.setTitle(currentQuestion.answers[index], for: .normal)
                         button.isHidden = false
                          button.backgroundColor = UIColor.systemBlue
                          button.setTitleColor(.white, for: .normal)

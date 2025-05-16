@@ -70,19 +70,25 @@ class AnswerViewController: UIViewController {
 
         questionLabel?.text = question.text
 
-        correctAnswerLabel.text = "Correct Answer: \(question.options[question.correctAnswerIndex])"
+        if let correctIndex = Int(question.answer), correctIndex < question.answers.count {
+            correctAnswerLabel.text = "Correct Answer: \(question.answers[correctIndex])"
+            let isCorrect = (userAnswerIndex == correctIndex)
 
-        let isCorrect = (userAnswerIndex == question.correctAnswerIndex)
-
-        if isCorrect {
-            resultLabel.text = "Correct!"
-            resultLabel.textColor = UIColor.systemGreen
-            score += 1
-            print("Answer is Correct. New score: \(score)")
+            if isCorrect {
+                resultLabel.text = "Correct!"
+                resultLabel.textColor = UIColor.systemGreen
+                score += 1
+                print("Answer is Correct. New score: \(score)")
+            } else {
+                resultLabel.text = "Incorrect."
+                resultLabel.textColor = UIColor.systemRed
+                print("Answer is Incorrect. Score remains: \(score)")
+            }
         } else {
-            resultLabel.text = "Incorrect."
+            correctAnswerLabel.text = "Correct Answer: Unknown"
+            resultLabel.text = "Could not check answer."
             resultLabel.textColor = UIColor.systemRed
-            print("Answer is Incorrect. Score remains: \(score)")
+            nextButton.isEnabled = false
         }
 
         nextButton.isEnabled = true
