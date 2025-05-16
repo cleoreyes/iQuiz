@@ -50,31 +50,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-
-//    let quizTopics: [Quiz] = [
-//        Quiz(title: "Mathematics", description: "Test your math skills!", iconName: "function", questions: [
-//            Question(text: "What is 2 + 2?", options: ["3", "4", "5", "6"], correctAnswerIndex: 1),
-//            Question(text: "What is the square root of 9?", options: ["2", "3", "4", "5"], correctAnswerIndex: 1),
-//            Question(text: "What is 5 * 3?", options: ["10", "12", "15", "20"], correctAnswerIndex: 2),
-//            Question(text: "What is 10 / 2?", options: ["4", "5", "6", "7"], correctAnswerIndex: 1),
-//            Question(text: "What is 7 + 6?", options: ["11", "12", "13", "14"], correctAnswerIndex: 2)
-//        ]),
-//        Quiz(title: "Science", description: "Explore the world of science!", iconName: "atom", questions: [
-//            Question(text: "What is the chemical symbol for water?", options: ["O2", "H2O", "CO2", "HO"], correctAnswerIndex: 1),
-//            Question(text: "What planet is known as the Red Planet?", options: ["Earth", "Mars", "Jupiter", "Venus"], correctAnswerIndex: 1),
-//            Question(text: "What gas do plants absorb from the atmosphere?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], correctAnswerIndex: 1),
-//            Question(text: "What is the center of an atom called?", options: ["Electron", "Proton", "Nucleus", "Neutron"], correctAnswerIndex: 2),
-//            Question(text: "What is the boiling point of water in Celsius?", options: ["50", "75", "100", "150"], correctAnswerIndex: 2),
-//        ]),
-//        Quiz(title: "Marvel Super Heroes", description: "Are you a Marvel expert?", iconName: "star.fill", questions: [
-//            Question(text: "What is the name of Thor's hammer?", options: ["Stormbreaker", "Mjolnir", "Gungnir", "Diva"], correctAnswerIndex: 1),
-//            Question(text: "Who is the alter ego of Captain America?", options: ["Tony Stark", "Bruce Banner", "Steve Rogers", "Peter Parker"], correctAnswerIndex: 2),
-//            Question(text: "What is Iron Man's real name?", options: ["Bruce Wayne", "Tony Stark", "Clark Kent", "Steve Rogers"], correctAnswerIndex: 1),
-//            Question(text: "What is the name of Black Panther's home country?", options: ["Wakanda", "Asgard", "Latveria", "Genosha"], correctAnswerIndex: 0),
-//            Question(text: "Who is the villain in Avengers: Infinity War?", options: ["Loki", "Thanos", "Ultron", "Red Skull"], correctAnswerIndex: 1)
-//        ])
-//    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -139,12 +114,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let error = error {
                     print("Network error: \(error.localizedDescription)")
                     DispatchQueue.main.async {
-                        self.refreshTimer?.invalidate() // Stop timed refresh on error
-                        if !self.hasShownFetchError && self.presentedViewController == nil { // Only show once
+                        self.refreshTimer?.invalidate()
+                        if !self.hasShownFetchError && self.presentedViewController == nil {
                             self.hasShownFetchError = true
                             let alert = UIAlertController(title: "Error", message: "Failed to fetch quiz data: \(error.localizedDescription)", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                                // After OK, do not show again until a successful fetch
                             }))
                             self.present(alert, animated: true)
                         }
@@ -172,7 +146,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     return
                 }
                 
-                // Print the received JSON data for debugging
                 if let jsonString = String(data: data, encoding: .utf8) {
                     print("Received JSON data: \(jsonString)")
                 }
@@ -181,7 +154,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     let quizzes = try JSONDecoder().decode([Quiz].self, from: data)
                     print("Successfully decoded \(quizzes.count) quizzes")
                     DispatchQueue.main.async {
-                        self.hasShownFetchError = false // Reset error flag on success
+                        self.hasShownFetchError = false
                         self.quizTopics = quizzes
                         self.tableView.reloadData()
                     }
@@ -271,11 +244,6 @@ extension ViewController {
 
         let topic = quizTopics[indexPath.row]
 
-//        if let iconName = topic.iconName {
-//            cell.imageView?.image = UIImage(systemName: iconName)
-//        } else {
-//            cell.imageView?.image = nil
-//        }
         cell.textLabel?.text = topic.title
         cell.detailTextLabel?.text = topic.desc
         
