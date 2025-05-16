@@ -45,7 +45,6 @@ class QuestionViewController: UIViewController {
             swipeRight.direction = .right
             view.addGestureRecognizer(swipeRight)
 
-            // Swipe Left to Abandon
             let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
             swipeLeft.direction = .left
             view.addGestureRecognizer(swipeLeft)
