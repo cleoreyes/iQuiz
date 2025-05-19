@@ -70,7 +70,8 @@ class AnswerViewController: UIViewController {
 
         questionLabel?.text = question.text
 
-        if let correctIndex = Int(question.answer), correctIndex < question.answers.count {
+        let correctIndex = question.correctAnswerIndex
+        if correctIndex < question.answers.count {
             correctAnswerLabel.text = "Correct Answer: \(question.answers[correctIndex])"
             let isCorrect = (userAnswerIndex == correctIndex)
 

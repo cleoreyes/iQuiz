@@ -12,11 +12,22 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var intervalTextField: UITextField!
     @IBOutlet weak var checkNowButton: UIButton!
+    @IBOutlet weak var openSettingsButton: UIButton!
 
     var onSettingsChanged: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        loadSettings()
+    }
+    
+    private func setupUI() {
+        openSettingsButton.setTitle("Open Settings App", for: .normal)
+        openSettingsButton.addTarget(self, action: #selector(openSettingsApp), for: .touchUpInside)
+    }
+    
+    private func loadSettings() {
         urlTextField.text = UserDefaults.standard.string(forKey: "quizDataURL") ?? "http://tednewardsandbox.site44.com/questions.json"
         intervalTextField.text = "\(UserDefaults.standard.double(forKey: "refreshInterval"))"
     }
@@ -33,5 +44,11 @@ class SettingsViewController: UIViewController {
     @IBAction func checkNowTapped(_ sender: Any) {
         onSettingsChanged?()
         dismiss(animated: true)
+    }
+    
+    @objc private func openSettingsApp() {
+        if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsUrl)
+        }
     }
 }
